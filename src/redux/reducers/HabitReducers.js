@@ -16,4 +16,4 @@ const habitSlice = createSlice({
 
 export const { addHabit } = habitSlice.actions;
 export const habitReducer = habitSlice.reducer;
-export const habitSelector = (state) => state.habits;
+export const habitSelector = (state) => state.habitSlice.habits;

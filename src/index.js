@@ -6,11 +6,12 @@ import Layout from './layout/Layout';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
+import HabitCalculator from './components/HabitCalculator/HabitCalculator';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
-
+      <Route path='/calculator' element={<HabitCalculator />} />
     </Route>
   )
 )

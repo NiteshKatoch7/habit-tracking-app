@@ -1,7 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux';
+import { habitSelector } from '../../redux/reducers/HabitReducers';
+import { ListComponent, ListItem } from './HabitListStyle';
 
 export default function HabitList() {
+  const { habits } = useSelector(habitSelector);
+  const [activeHabit, setActiveHabit] = useState(0);
+
+  const handleItemClick = (index) => {
+    setActiveHabit(index);
+  }
+
   return (
-    <div>HabitList</div>
+    <ListComponent>
+      {
+        habits.map((habit, index) => (
+          <ListItem 
+            key={index}
+            className={index === activeHabit ? 'active' : ''}
+            onClick={() => handleItemClick(index)}
+          >
+            {habit.habit}
+          </ListItem>
+        ))
+      }
+    </ListComponent>
   )
 }

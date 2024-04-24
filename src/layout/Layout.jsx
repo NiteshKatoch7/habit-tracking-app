@@ -6,6 +6,7 @@ import { Outlet } from 'react-router-dom';
 import CustomModal from '../components/CustomModal/CustomModal';
 import { useDispatch } from 'react-redux';
 import { toggleModal } from '../redux/reducers/ModalReducers';
+import HabitList from '../components/HabitList/HabitList';
 
 export default function Layout() {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ export default function Layout() {
             </Row>
             <Row className='w-100 h-100'>
                 <Col md="5">
-
+                    <HabitList />
                 </Col>
                 <Col md="7">
                     <Outlet />

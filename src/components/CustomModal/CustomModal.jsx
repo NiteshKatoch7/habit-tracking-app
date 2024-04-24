@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { ModalPopup, ModalPopupOverlay } from './CustomModalStyle';
 import { FaTimes } from 'react-icons/fa';
 import { modalIsOpenSelector, toggleModal } from '../../redux/reducers/ModalReducers';
+import AddHabitForm from '../AddHabitForm/AddHabitForm';
 
 export default function CustomModal() {
   const { modalIsOpen } = useSelector(modalIsOpenSelector);
@@ -21,7 +22,7 @@ export default function CustomModal() {
                 </button>
               </div>
               <div className='modal-body'>
-
+                <AddHabitForm />
               </div>
             </ModalPopup>
         </ModalPopupOverlay>

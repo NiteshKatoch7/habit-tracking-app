@@ -1,7 +1,38 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-    habits: []
+    habits: [
+        {
+            habit: 'Working Out in the Morning!'
+        },
+        {
+            habit: 'Working Out in the Morning!'
+        },
+        {
+            habit: 'Working Out in the Morning!'
+        },
+        {
+            habit: 'Working Out in the Morning!'
+        },
+        {
+            habit: 'Working Out in the Morning!'
+        },
+        {
+            habit: 'Working Out in the Morning!'
+        },
+        {
+            habit: 'Working Out in the Morning!'
+        },
+        {
+            habit: 'Working Out in the Morning!'
+        },
+        {
+            habit: 'Working Out in the Morning!'
+        },
+        {
+            habit: 'Working Out in the Morning!'
+        }
+    ]
 }
 
 const habitSlice = createSlice({
@@ -16,4 +47,4 @@ const habitSlice = createSlice({
 
 export const { addHabit } = habitSlice.actions;
 export const habitReducer = habitSlice.reducer;
-export const habitSelector = (state) => state.habitSlice.habits;
+export const habitSelector = (state) => state.habitReducer;

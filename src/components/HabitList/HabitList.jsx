@@ -5,7 +5,7 @@ import { ListComponent, ListItem } from './HabitListStyle';
 
 export default function HabitList() {
   const { habits } = useSelector(habitSelector);
-  const [activeHabit, setActiveHabit] = useState(0);
+  const [activeHabit, setActiveHabit] = useState(null);
 
   const handleItemClick = (index) => {
     setActiveHabit(index);

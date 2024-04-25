@@ -10,7 +10,6 @@ const modalSlice = createSlice({
     initialState,
     reducers: {
         toggleModal(state){
-            console.log('action is getting triggered')
             state.modalIsOpen = !state.modalIsOpen
         }
     }

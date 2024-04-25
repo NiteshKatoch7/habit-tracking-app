@@ -1,11 +1,17 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import React from 'react'
 import { FormWrapper } from './AddHabitFormStyle';
+import { useDispatch, useSelector } from 'react-redux';
+import { addHabit, habitSelector } from '../../redux/reducers/HabitReducers';
+import { toggleModal } from '../../redux/reducers/ModalReducers';
 
 export default function AddHabitForm() {
+  const dispatch = useDispatch();
+  const { habits } = useSelector(habitSelector);
+  console.log(habits);
   return (
       <Formik
-        initialValues={{ habit: '' }}
+        initialValues={{  id: habits.length + 1, habit: '' }}
         validate={values => {
           const errors = {};
           if (!values.habit) {
@@ -15,7 +21,9 @@ export default function AddHabitForm() {
         }}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
+            console.log(values)
+            dispatch(addHabit(values));
+            dispatch(toggleModal());
             setSubmitting(false);
           }, 400);
         }}

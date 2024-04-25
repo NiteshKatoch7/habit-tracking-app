@@ -42,6 +42,7 @@ export const ListItem = styled.li`
   font-size: 18px;
   font-weight: 700;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  animation: fadeIn 0.6s ease-in-out;
 
   &.active{
     background: #FF5634;

@@ -1,46 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-    habits: [
-        {
-            habit: 'Working Out in the Morning!'
-        },
-        {
-            habit: 'Working Out in the Morning!'
-        },
-        {
-            habit: 'Working Out in the Morning!'
-        },
-        {
-            habit: 'Working Out in the Morning!'
-        },
-        {
-            habit: 'Working Out in the Morning!'
-        },
-        {
-            habit: 'Working Out in the Morning!'
-        },
-        {
-            habit: 'Working Out in the Morning!'
-        },
-        {
-            habit: 'Working Out in the Morning!'
-        },
-        {
-            habit: 'Working Out in the Morning!'
-        },
-        {
-            habit: 'Working Out in the Morning!'
-        }
-    ]
+    habits: JSON.parse(localStorage.getItem('habits')) || []
 }
 
 const habitSlice = createSlice({
     name: 'habit',
     initialState,
     reducers: {
-        addHabit(state) {
-
+        addHabit(state, action) {
+            state.habits.push(action.payload);
+            localStorage.setItem('habits', JSON.stringify(state.habits));
         },
     }
 })

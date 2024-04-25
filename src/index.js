@@ -11,7 +11,7 @@ import HabitCalculator from './components/HabitCalculator/HabitCalculator';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
-      <Route path='/calculator' element={<HabitCalculator />} />
+      <Route path='/:habitId' element={<HabitCalculator />} />
     </Route>
   )
 )

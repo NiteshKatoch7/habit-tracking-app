@@ -33,6 +33,9 @@ export const ListComponent = styled.ul`
 `;
 
 export const ListItem = styled.li`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 16px 20px;
   background: #ffffff;
   color: #000000;
@@ -47,5 +50,22 @@ export const ListItem = styled.li`
   &.active{
     background: #FF5634;
     color: #ffffff;
+
+    .icon{
+      color: white;
+    }
+  }
+
+  .icon{
+    border: 0;
+    background: none;
+  }
+
+  .pen-icon{
+    color: #007bff;
+  }
+
+  .trash-icon{
+    color: #FF0000;
   }
 `;

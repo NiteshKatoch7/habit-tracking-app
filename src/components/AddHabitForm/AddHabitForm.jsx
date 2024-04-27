@@ -2,16 +2,19 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import React from 'react'
 import { FormWrapper } from './AddHabitFormStyle';
 import { useDispatch, useSelector } from 'react-redux';
-import { addHabit, habitSelector } from '../../redux/reducers/HabitReducers';
+import { addHabit, editHabit, habitSelector } from '../../redux/reducers/HabitReducers';
 import { toggleModal } from '../../redux/reducers/ModalReducers';
 
 export default function AddHabitForm() {
   const dispatch = useDispatch();
-  const { habits } = useSelector(habitSelector);
-  console.log(habits);
+  const { habits, existingformData, isUpdating } = useSelector(habitSelector);
+
   return (
       <Formik
-        initialValues={{  id: habits.length + 1, habit: '' }}
+        initialValues={{  
+          id: existingformData.id || habits.length + 1, 
+          habit: existingformData.habit || '' 
+        }}
         validate={values => {
           const errors = {};
           if (!values.habit) {
@@ -21,8 +24,13 @@ export default function AddHabitForm() {
         }}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
-            console.log(values)
-            dispatch(addHabit(values));
+            
+            if(isUpdating){
+              dispatch(editHabit(values, existingformData.id));
+            }else{
+              dispatch(addHabit(values));
+            }
+
             dispatch(toggleModal());
             setSubmitting(false);
           }, 400);
@@ -42,7 +50,7 @@ export default function AddHabitForm() {
             <FormWrapper>
               <div className='form-container submit-btns'>
                 <button type="submit" disabled={isSubmitting}>
-                  Submit
+                  {isUpdating ? 'Update' : 'Submit'} 
                 </button>
               </div>
             </FormWrapper>

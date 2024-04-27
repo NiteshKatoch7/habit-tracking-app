@@ -23,3 +23,11 @@ code {
     transform: translateY(0%);
   }
 }
+@keyframes fadeInModal {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}

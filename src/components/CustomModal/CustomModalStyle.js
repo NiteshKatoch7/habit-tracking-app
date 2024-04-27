@@ -13,7 +13,7 @@ export const ModalPopupOverlay = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: fading 0.4s ease-in-out;
+  animation: fadeInModal 0.4s ease-in-out;
 `;
 
 export const ModalPopup = styled.div`

@@ -7,10 +7,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import HabitCalculator from './components/HabitCalculator/HabitCalculator';
+import InitialHabitCalculator from './components/HabitCalculator/HabitCalculator';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
+      <Route path='/' element={<HabitCalculator />} />
       <Route path='/:habitId' element={<HabitCalculator />} />
     </Route>
   )

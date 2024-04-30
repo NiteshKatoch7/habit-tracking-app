@@ -13,7 +13,7 @@ export const HomeController = styled.div`
 export const ContentContainer = styled.div`
     width: 80%;
     margin: auto;
-    height: 80%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     padding: 20px;

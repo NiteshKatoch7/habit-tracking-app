@@ -4,44 +4,71 @@ import { deleteHabit, editHabit, habitSelector, toggleUpdating, updateExistingFr
 import { ListComponent, ListItem } from './HabitListStyle';
 import { FaPen, FaTrash } from 'react-icons/fa';
 import { toggleModal } from '../../redux/reducers/ModalReducers';
+import { NavLink, useNavigate, useParams } from 'react-router-dom';
 
 export default function HabitList() {
-  const { habits } = useSelector(habitSelector);
-  const [activeHabit, setActiveHabit] = useState(null);
+  const { habits, isUpdating } = useSelector(habitSelector);
 
   const dispatch = useDispatch();
-
-  const handleItemClick = (index) => {
-    setActiveHabit(index);
-  }
+  const { habitId } = useParams();
+  const navigate = useNavigate();
 
   const handleEditHabit = (habit) => {
     dispatch(updateExistingFromData(habit));
     dispatch(toggleUpdating());
-    dispatch(toggleModal());
+    if(!isUpdating){
+      dispatch(toggleModal());
+    }
   }
+
+  const handleDeleteHabit = (id) => {
+    console.log(habitId, id)
+    if(habitId === id || !habitId){
+      navigate('/', { replace: true });
+    }
+    dispatch(deleteHabit(id));
+  }
+
 
   return (
     <ListComponent>
       {
         habits.map((habit, index) => (
-          <ListItem 
-            key={index}
-            className={index === activeHabit ? 'active' : ''}
-            onClick={() => handleItemClick(index)}
+          <NavLink 
+            to={ `/${habit.id}` }
+            className={({ isActive }) => 
+              isActive ? 'active' :  ''
+            }
           >
-            <span>
-              {habit.habit}
-            </span>
-            <div>
-              <button className='icon pen-icon' onClick={() => handleEditHabit(habit)}>
-                <FaPen />
-              </button>
-              <button className='icon trash-icon' onClick={() => dispatch(deleteHabit(habit.id))}>
-                <FaTrash />
-              </button>
-            </div>
-          </ListItem>
+            <ListItem 
+              key={index}
+            >
+              <span>
+                {habit.habit}
+              </span>
+              <div>
+                <button 
+                  className='icon pen-icon' 
+                  onClick={
+                    (event) => {
+                      event.preventDefault();
+                      event.stopPropagation();
+                      handleEditHabit(habit)
+                    }}>
+                  <FaPen />
+                </button>
+                <button 
+                  className='icon trash-icon' 
+                  onClick={(event) => {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    handleDeleteHabit(habit.id)
+                    }}>
+                  <FaTrash />
+                </button>
+              </div>
+            </ListItem>
+          </NavLink>
         ))
       }
     </ListComponent>

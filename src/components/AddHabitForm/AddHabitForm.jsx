@@ -9,10 +9,16 @@ export default function AddHabitForm() {
   const dispatch = useDispatch();
   const { habits, existingformData, isUpdating } = useSelector(habitSelector);
 
+  const generateRandomID = () => {
+    const timestamp = Date.now().toString(36);
+    const randomNum = Math.random().toString(36).substr(2, 5);
+    return timestamp + randomNum;
+  }
+
   return (
       <Formik
         initialValues={{  
-          id: existingformData.id || habits.length + 1, 
+          id: existingformData.id || generateRandomID(), 
           habit: existingformData.habit || '' 
         }}
         validate={values => {

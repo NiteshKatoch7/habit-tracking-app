@@ -30,6 +30,27 @@ export const ListComponent = styled.ul`
     background-color: lightgrey;
     border-radius: 12px;
   }
+
+  a{
+    text-decoration: none;
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    animation: fadeIn 0.6s ease-in-out;
+
+    &.active{
+      background: #FF5634;
+      color: #ffffff;
+  
+      .icon{
+        color: white;
+      }
+
+      span{
+        color: #ffffff;
+      }
+    }
+  }
 `;
 
 export const ListItem = styled.li`
@@ -37,15 +58,13 @@ export const ListItem = styled.li`
   justify-content: space-between;
   align-items: center;
   padding: 16px 20px;
-  background: #ffffff;
+  background: transparent;
   color: #000000;
   cursor: pointer;
   width: 100%;
   border-radius: 4px;
   font-size: 18px;
   font-weight: 700;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  animation: fadeIn 0.6s ease-in-out;
 
   &.active{
     background: #FF5634;

@@ -58,7 +58,7 @@ export const ModalPopup = styled.div`
     z-index: 9;
 
     h3{
-        color: #FF0000;
+        color: #6054ba;
         font-weight: 900;
         font-size: 30px;
         margin-bottom: 0;

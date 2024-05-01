@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const HabitWrapper = styled.div`
-    border: 5px dashed #FF5634;
+    border: 5px dashed #e9ecff;
     max-height: 540px;
     height: 100%;
     align-self: center;
@@ -56,16 +56,18 @@ export const CalculatorWrapper = styled.div`
         background: #fff;
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
         border: 0;
-        width: 250px;
+        width: 225px;
 
         .card-header{
-            background: #FF5634;
-            color: #fff;
+            background: #e9ecff;
+            color: #6054ba;
             display: flex;
             justify-content: space-between;
+            border: 0;
 
             p{
-                color: #fff;
+                color: #6054ba;
+                font-weight: 700;
                 margin: 0;
             }
         }

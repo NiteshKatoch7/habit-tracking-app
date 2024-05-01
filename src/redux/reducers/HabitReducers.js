@@ -70,10 +70,42 @@ const habitSlice = createSlice({
         },
         toggleUpdating(state){
             state.isUpdating = !state.isUpdating;
+        },
+        dailyHabitUpdate(state){
+            const today = new Date();
+            const datesToKeep = [];
+            for (let i=0; i < 7; i++) {
+                const date = addDays(today, -i);
+                datesToKeep.push(format(date, 'dd-MM-yyyy'));
+            }
+
+            const updatedHabits = state.habits.map((habit) => {
+                const updatedDates = habit.dates.filter((dH) => datesToKeep.includes(dH.date));
+                const newDates = habit.dates.filter((dH) => !datesToKeep.includes(dH.date));
+                habit.dates = updatedDates;
+
+                if (newDates.length > 0){
+                    return {
+                        ...habit,
+                        dates: [
+                            {
+                                date: format(today, 'dd-MM-yyyy'),
+                                status: 3
+                            },
+                            ...updatedDates,
+                        ]
+                    }
+                }else{
+                    return habit;
+                }
+            });
+
+            state.habits = updatedHabits;
+            updateLocalStorage('habits', state.habits);
         }
     }
 })
 
-export const { addHabit, deleteHabit, updateHabitStatus, editHabit, updateExistingFromData, toggleUpdating } = habitSlice.actions;
+export const { addHabit, deleteHabit, updateHabitStatus, editHabit, updateExistingFromData, toggleUpdating, dailyHabitUpdate } = habitSlice.actions;
 export const habitReducer = habitSlice.reducer;
 export const habitSelector = (state) => state.habitReducer;

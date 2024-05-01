@@ -11,7 +11,6 @@ export default function HabitCalculator() {
   const selectedHabit = habits.find((habit) => habit.id === habitId);
   const dispatch = useDispatch();
   
-
   return (
     <HabitWrapper>
       {

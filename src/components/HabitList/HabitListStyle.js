@@ -39,7 +39,7 @@ export const ListComponent = styled.ul`
     animation: fadeIn 0.6s ease-in-out;
 
     &.active{
-      background: #FF5634;
+      background: #6054ba;
       color: #ffffff;
   
       .icon{
@@ -67,7 +67,7 @@ export const ListItem = styled.li`
   font-weight: 700;
 
   &.active{
-    background: #FF5634;
+    background: #6054ba;
     color: #ffffff;
 
     .icon{

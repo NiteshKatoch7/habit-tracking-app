@@ -53,7 +53,7 @@ export const FormWrapper = styled.div`
         padding: 6px 14px;
         min-width: 100px;
         border-radius: 4px;
-        background: #FF5634;
+        background: #6054ba;
         color: #fff;
         cursor: pointer;
         border: 0;

@@ -7,7 +7,7 @@ export const HomeController = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #FF5634;
+    background: #e9ecff;
 `;
 
 export const ContentContainer = styled.div`
@@ -30,14 +30,14 @@ export const ContentContainer = styled.div`
 
         .project-title{
             font-weight: 800;
-            color: #FF0000;
+            color: #6054ba;
         }
 
         .add-habit-btn{
             min-width: 160px;
             padding: 10px 24px;
             border-radius: 12px;
-            background: #FF0000;
+            background: #6054ba;
             font-size: 20px;
             font-weight: 600;
             border: 0;

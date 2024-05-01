@@ -75,7 +75,7 @@ export const ModalPopup = styled.div`
       height: 35px;
       
       svg{
-        color: #FF5634;
+        color: #6054ba;
       }
     }
   }

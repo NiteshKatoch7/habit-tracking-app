@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { ContentContainer, HomeController } from './LayoutStyle'
 import { Col, Row } from 'react-bootstrap'
 import { FaPlus } from 'react-icons/fa';
@@ -7,11 +7,15 @@ import CustomModal from '../components/CustomModal/CustomModal';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleModal } from '../redux/reducers/ModalReducers';
 import HabitList from '../components/HabitList/HabitList';
-import { habitSelector, toggleUpdating, updateExistingFromData } from '../redux/reducers/HabitReducers';
+import { dailyHabitUpdate, habitSelector, toggleUpdating, updateExistingFromData } from '../redux/reducers/HabitReducers';
 
 export default function Layout() {
   const dispatch = useDispatch();
   const { isUpdating } = useSelector(habitSelector);
+
+  useEffect(()=>{
+    dispatch(dailyHabitUpdate());
+  }, [dispatch])
 
   const handleAddHabit = () => {
     if(isUpdating){

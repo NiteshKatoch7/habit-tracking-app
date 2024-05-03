@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteHabit, editHabit, habitSelector, toggleUpdating, updateExistingFromData } from '../../redux/reducers/HabitReducers';
+import { deleteHabit, habitSelector, toggleUpdating, updateExistingFromData } from '../../redux/reducers/HabitReducers';
 import { ListComponent, ListItem } from './HabitListStyle';
 import { FaPen, FaTrash } from 'react-icons/fa';
 import { toggleModal } from '../../redux/reducers/ModalReducers';

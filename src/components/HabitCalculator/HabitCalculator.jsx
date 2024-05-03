@@ -1,6 +1,6 @@
 import React from 'react'
 import { CalculatorWrapper, HabitWrapper } from './HabitCalculatorStyle';
-import { FaCheck, FaCross, FaMinus, FaTimes } from 'react-icons/fa';
+import { FaCheck, FaMinus, FaTimes } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { habitSelector, updateHabitStatus } from '../../redux/reducers/HabitReducers';

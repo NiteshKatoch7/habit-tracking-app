@@ -9,7 +9,7 @@ import { toggleModal } from '../../redux/reducers/ModalReducers';
 export default function AddHabitForm() {
   // Accessing redux store states and using useDispatch to dispatch actions to our redux.
   const dispatch = useDispatch();
-  const { habits, existingformData, isUpdating } = useSelector(habitSelector);
+  const { existingformData, isUpdating } = useSelector(habitSelector);
 
   const generateRandomID = () => {
     const timestamp = Date.now().toString(36);

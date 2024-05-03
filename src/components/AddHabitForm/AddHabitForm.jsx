@@ -5,7 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addHabit, editHabit, habitSelector } from '../../redux/reducers/HabitReducers';
 import { toggleModal } from '../../redux/reducers/ModalReducers';
 
+// Form Component
 export default function AddHabitForm() {
+  // Accessing redux store states and using useDispatch to dispatch actions to our redux.
   const dispatch = useDispatch();
   const { habits, existingformData, isUpdating } = useSelector(habitSelector);
 
@@ -16,6 +18,7 @@ export default function AddHabitForm() {
   }
 
   return (
+      // Using Formik for form management
       <Formik
         initialValues={{  
           id: existingformData.id || generateRandomID(), 
@@ -31,12 +34,14 @@ export default function AddHabitForm() {
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
             
+            // If form is in updating stage : we will dispatch for editHabit action and if not updating we wil dispatch the addHabit action.
             if(isUpdating){
               dispatch(editHabit(values, existingformData.id));
             }else{
               dispatch(addHabit(values));
             }
 
+            //Toggling the modal to close it afte3r succesfull form submit
             dispatch(toggleModal());
             setSubmitting(false);
           }, 400);
@@ -56,6 +61,7 @@ export default function AddHabitForm() {
             <FormWrapper>
               <div className='form-container submit-btns'>
                 <button type="submit" disabled={isSubmitting}>
+                  {/* Showing update button in the form when updating, submit button */}
                   {isUpdating ? 'Update' : 'Submit'} 
                 </button>
               </div>

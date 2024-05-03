@@ -8,12 +8,18 @@ export const HomeController = styled.div`
     justify-content: center;
     align-items: center;
     background: #e9ecff;
+
+    @media only screen and (max-width: 768px){
+        height: 100%;
+        padding: 50px 0;
+    }
 `;
 
 export const ContentContainer = styled.div`
+    position: relative;
     width: 80%;
     margin: auto;
-    height: 90%;
+    height: 90vh;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -22,6 +28,11 @@ export const ContentContainer = styled.div`
     background: #fff;
     border-radius: 12px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    @media only screen and (max-width: 768px){
+        height: 100%;
+        width: 90%;
+    }
 
     .content-container{
         display: flex;
@@ -46,6 +57,13 @@ export const ContentContainer = styled.div`
             align-items: center;
             justify-content: space-between;
             gap: 0 10px;
+
+            @media only screen and (max-width: 768px){
+                position: absolute;
+                top: 0;
+                right: 0;
+                transform: translate3d(10%, -50%, 0);
+            }
         }
     }
 `;

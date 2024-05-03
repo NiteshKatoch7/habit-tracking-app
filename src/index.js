@@ -7,19 +7,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import HabitCalculator from './components/HabitCalculator/HabitCalculator';
-import InitialHabitCalculator from './components/HabitCalculator/HabitCalculator';
 
+// Setting up the Routing for our single page project!
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Layout />}>
+    <Route path="/*" element={<Layout />}>
       <Route index element={<HabitCalculator />} />
-      <Route path=':habitId' element={<HabitCalculator />} />
+      <Route path='/:habitId' element={<HabitCalculator />} />
     </Route>
   )
 )
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+    //Assigning our redux store to the parent node.
     <Provider store={store}>
       <RouterProvider router={router} />
     </Provider>

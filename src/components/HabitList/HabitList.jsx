@@ -6,13 +6,18 @@ import { FaPen, FaTrash } from 'react-icons/fa';
 import { toggleModal } from '../../redux/reducers/ModalReducers';
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
 
+// Habit List Component
 export default function HabitList() {
+  
+  // Accessing redux store states and using useDispatch to dispatch actions to our redux.
   const { habits, isUpdating } = useSelector(habitSelector);
-
   const dispatch = useDispatch();
+
+  // Extracting the habit id, from the url.
   const { habitId } = useParams();
   const navigate = useNavigate();
 
+  // Using this functions to Handle the edit button click on particular habit
   const handleEditHabit = (habit) => {
     dispatch(updateExistingFromData(habit));
     dispatch(toggleUpdating());
@@ -21,6 +26,7 @@ export default function HabitList() {
     }
   }
 
+  // Using this functions to Handle the delete button click on particular habit
   const handleDeleteHabit = (id) => {
     console.log(habitId, id)
     if(habitId === id || !habitId){
@@ -49,17 +55,19 @@ export default function HabitList() {
               <div>
                 <button 
                   className='icon pen-icon' 
+                  // On Click of Edit button on the selected habit, we trigger the handleEditHabit functions writter above in the page.
                   onClick={
                     (event) => {
                       event.preventDefault();
                       event.stopPropagation();
                       handleEditHabit(habit)
-                    }}>
+                    }}> 
                   <FaPen />
                 </button>
                 <button 
                   className='icon trash-icon' 
                   onClick={(event) => {
+                    // On Click of Delete button on the selected habit, we trigger the handleDeleteHabit functions writter above in the page.
                     event.preventDefault();
                     event.stopPropagation();
                     handleDeleteHabit(habit.id)

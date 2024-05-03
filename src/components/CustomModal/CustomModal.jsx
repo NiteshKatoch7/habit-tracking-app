@@ -5,6 +5,7 @@ import { FaTimes } from 'react-icons/fa';
 import { modalIsOpenSelector, toggleModal } from '../../redux/reducers/ModalReducers';
 import AddHabitForm from '../AddHabitForm/AddHabitForm';
 
+// Custom Modal form  Component
 export default function CustomModal() {
   const { modalIsOpen } = useSelector(modalIsOpenSelector);
   const dispatch = useDispatch();

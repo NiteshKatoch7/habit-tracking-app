@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+### Habit Tracking App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### Overview
+This Habit Tracking App allows users to add and track multiple habits on a daily basis. Users can mark each habit as done, not done, or none for each day. The app provides views to display all current habits and track their status over the past seven days.
 
-## Available Scripts
+#### Features
+1. **Add and Track Habits**: Users can add multiple habits to track, such as reading a book, going to the gym, etc.
+2. **Track Daily Habits**: Each habit can be tracked daily with three statuses: Done, Not Done, or None.
+3. **View Current Habits**: A view displays all current habits, allowing users to add new habits to track.
+4. **Track 7-Day History**: Users can view a 7-day history of each habit, including today's status and the status of the previous six days.
+5. **Toggle Habit Status**: Users can toggle between the three statuses (Done, Not Done, None) for both today and previous days.
+6. **Responsive Design**: The app is designed to be responsive and works seamlessly across different devices.
 
-In the project directory, you can run:
+### Running the Habit Tracking App Locally
 
-### `npm start`
+To run the Habit Tracking App locally on your machine, follow these steps:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### Prerequisites
+Before you begin, ensure you have the following installed on your machine:
+- Node.js (version 12 or higher)
+- npm (Node Package Manager) or yarn
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### Installation
+1. Clone the repository to your local machine using Git:
+2. Navigate to the project directory:
+3. Install project dependencies using npm or yarn:
 
-### `npm test`
+#### Usage
+Open your web browser and navigate to the specified URL (`http://localhost:3000/`) to access the Habit Tracking App. You can now add habits, track their status, and explore the app's features locally on your machine.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Technologies Used
+- React
+- React Router DOM
+- Redux Toolkit
+- Formik
+- Styled Components
+- Bootstrap
+- Date-fns
+- React Icons
 
-### `npm run build`
+### Habit Reducer Explanation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The Habit Reducer is a crucial part of the Habit Tracking App, responsible for managing the application state related to habits. It utilizes the `createSlice` function from the `@reduxjs/toolkit` library to define a slice of the Redux store, including initial state and reducers to update the state.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Initial State
+The initial state of the habit slice includes three main properties:
+- `habits`: An array containing habit objects, retrieved from local storage or initialized as an empty array if no habits are stored locally.
+- `existingformData`: An empty object used to store existing form data.
+- `isUpdating`: A boolean flag initialized to `false`, indicating whether the app is in the process of updating.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Reducers
+The reducers defined within the habit slice handle various actions to update the state. Here's a brief explanation of each reducer:
+1. `addHabit`: Adds a new habit to the state along with dates for the last 7 days, updating both state and local storage.
+2. `updateHabitStatus`: Updates the status of a habit for a specific date, modifying both state and local storage.
+3. `editHabit`: Edits the name of a habit, updating the corresponding habit object in the state and local storage.
+4. `deleteHabit`: Deletes a habit from the state and local storage based on its ID.
+5. `updateExistingFromData`: Updates the existing form data in the state.
+6. `toggleUpdating`: Toggles the `isUpdating` flag between `true` and `false`.
+7. `dailyHabitUpdate`: Updates habits for the current day, maintaining a history of the last 7 days for each habit.
 
-### `npm run eject`
+#### Exported Functions
+The habit slice exports action creators (`addHabit`, `deleteHabit`, etc.) and the habit reducer function (`habitReducer`) for use in other parts of the application. Additionally, `habitSelector` is exported as a selector function to access the habit state from the Redux store.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This reducer plays a central role in managing habit-related state and actions within the Habit Tracking App, ensuring data consistency and integrity across the application.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Deployment
+The app is deployed on Netlify.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### Installation
+To run the app locally, clone the repository and install dependencies using npm or yarn:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### Usage
+Once the app is running, navigate to the specified URL (default is `http://localhost:3000/`) to access the Habit Tracking App. Add habits, track their status, and view the history to stay organized and accountable.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### Author
+Nitesh Katoch

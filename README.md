@@ -1,5 +1,8 @@
 ### Habit Tracking App
 
+#### Live Demo
+Check out the live demo of the Habit Tracking App [here](https://habitrick.netlify.app/).
+
 #### Overview
 This Habit Tracking App allows users to add and track multiple habits on a daily basis. Users can mark each habit as done, not done, or none for each day. The app provides views to display all current habits and track their status over the past seven days.
 

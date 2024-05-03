@@ -13,7 +13,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/*" element={<Layout />}>
       <Route index element={<HabitCalculator />} />
-      <Route path='/:habitId' element={<HabitCalculator />} />
+      <Route path=':habitId' element={<HabitCalculator />} />
     </Route>
   )
 )

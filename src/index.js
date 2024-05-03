@@ -11,7 +11,7 @@ import HabitCalculator from './components/HabitCalculator/HabitCalculator';
 // Setting up the Routing for our single page project!
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/*" element={<Layout />}>
+    <Route path="/" element={<Layout />}>
       <Route index element={<HabitCalculator />} />
       <Route path=':habitId' element={<HabitCalculator />} />
     </Route>
